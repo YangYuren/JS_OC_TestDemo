@@ -1,0 +1,61 @@
+<!DOCTYPE html>  
+<html>  
+<head lang="en">  
+    <meta charset="UTF-8">  
+</head>  
+<body>  
+    <div style="margin-top: 100px">  
+        <h1>OC-JS交互Demo演示</h1>
+        <input type="button" value="一号请点击" onclick="Yang.callCamera()" style = "width:300px;height:30px;border:0px;background-color:blue;margin-left:10px" >
+    </div>         
+  
+    <div>  
+        <input type="button" value="二号请点击" onclick="callShare()" style = "width:300px;height:30px;border-style:none; background-color:#FF9;margin-left:10px; margin-top:20px">
+    </div>
+    <div>
+        <input type="button" value="三号请点击" onclick="Kobe()" style = "width:300px;height:30px;border-style:none; background-color:#FF9;margin-left:10px; margin-top:30px">
+            </div>
+    <div>
+        <img id = "image" src = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1496925996605&di=391d20f11010a2d8f9f288c5fde1c304&imgtype=0&src=http%3A%2F%2Fimg5q.duitang.com%2Fuploads%2Fitem%2F201505%2F24%2F20150524182423_tNwRF.thumb.700_0.jpeg"  alt="测试图片" style = "width:375px;margin-top:40px"/>
+    </div>
+  
+<script>  
+    var callShare = function() {
+        Yang.share();
+    }  
+  
+    var picCallback = function(photos) {  
+        alert(photos);  
+    }  
+  
+    var shareCallback = function(){
+     //调用修改图片的API
+     changeIamge();
+     
+    }
+    var Kobe = function(){
+        Yang.test();
+    }
+    var TestYang = function(){
+        alert("This is a test");
+    }
+
+</script>
+<script>
+    //修改图片的API
+    var flag = 1;//记录图片状态
+    function changeIamge(){
+        
+        var element = document.getElementById('image');
+        if(flag == 1){
+            element.src = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1496926034716&di=5f208a2850a2aeb9b9184f0d1f7d2f14&imgtype=0&src=http%3A%2F%2Fimg4.duitang.com%2Fuploads%2Fitem%2F201512%2F23%2F20151223124910_WTJdf.jpeg";
+            flag = 0;
+        }else{
+            element.src = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1496925996605&di=391d20f11010a2d8f9f288c5fde1c304&imgtype=0&src=http%3A%2F%2Fimg5q.duitang.com%2Fuploads%2Fitem%2F201505%2F24%2F20150524182423_tNwRF.thumb.700_0.jpeg";
+            flag =1;
+        }
+            
+    }
+    </script>
+</body>  
+</html>  
